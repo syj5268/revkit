@@ -1,6 +1,7 @@
 venv: venv/bin/activate
 venv/bin/activate: requirements.txt docs/requirements.txt
-	test -d venv || virtualenv venv
+	test -d venv || python3 -m venv venv
+	python -m pip install -U pip "setuptools<58" wheel
 	venv/bin/pip install -r requirements.txt
 	venv/bin/pip install -r docs/requirements.txt
 	venv/bin/pip install qiskit==0.7.1

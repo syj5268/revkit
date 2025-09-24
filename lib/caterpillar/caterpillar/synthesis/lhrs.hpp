@@ -459,7 +459,12 @@ private:
     qnet.add_gate( tweedledum::gate::cx, tweedledum::qubit_id( c3 ), c1 );
     qnet.add_gate( tweedledum::gate::cx, tweedledum::qubit_id( c3 ), t );
 
-    qnet.add_gate( tweedledum::gate::mcx, SetQubits{{c1, c2}}, SetQubits{{t}} );
+    // qnet.add_gate( tweedledum::gate::mcx, SetQubits{{c1, c2}}, SetQubits{{t}} );
+    qnet.add_gate(
+        tweedledum::gate::mcx,
+        SetQubits{ tweedledum::qubit_id(c1, false), tweedledum::qubit_id(c2, false) },
+        SetQubits{ tweedledum::qubit_id(t,  false) }
+    );
 
     qnet.add_gate( tweedledum::gate::cx, tweedledum::qubit_id( c3 ), c1 );
     qnet.add_gate( tweedledum::gate::cx, tweedledum::qubit_id( c1 ), c2 );

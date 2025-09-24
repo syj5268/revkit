@@ -46,6 +46,22 @@ cd revkit
 make devbuild
 ```
 
+(Note)If not having pyenv, install.
+```bash
+sudo apt update
+sudo apt install -y \
+  build-essential pkg-config \
+  libffi-dev libssl-dev zlib1g-dev \
+  libbz2-dev libreadline-dev libsqlite3-dev \
+  libncursesw5-dev xz-utils tk-dev \
+  liblzma-dev libgdbm-dev uuid-dev
+
+pyenv install 3.8.18
+pyenv local 3.8.18  
+pyenv rehash
+python -V # Check version
+```
+
 A very recent C++ compiler with support for C++ 17 is required to build RevKit.
 If compilation with the default compiler on your system does not work, try to
 setting the `CC` environment variable to a more recent compiler.
